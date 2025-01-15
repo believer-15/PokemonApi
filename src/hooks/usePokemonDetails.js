@@ -21,8 +21,9 @@ function usePokemonDetails(id, pokemonName) {
                 similarPokemons: pokemonOfSameTypes.data.pokemon.slice(0, 5)
             });
             setPokemonListState({...pokemonListState, type: response.data.types ? response.data.types[0].type.name : '' })
+        // eslint-disable-next-line no-unused-vars
         } catch(error) {
-            console.log('something went')
+            console.log('something went wrong')
         }
         
     } 

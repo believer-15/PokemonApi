@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import './PokemonDetails.css';
 import { useParams } from "react-router-dom";
 import usePokemonDetails from '../../hooks/usePokemonDetails';
