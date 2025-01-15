@@ -1,27 +1,11 @@
-import axios from 'axios';
 import './PokemonDetails.css';
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import usePokemonDetails from '../../hooks/usePokemonDetails';
 
-function PokemonDetails() {
-    const { id } = useParams(); // to access param from url
+function PokemonDetails({ pokemonName }) {
 
-    const [pokemon, setPokemon] = useState({});
-
-    async function downloadPokemon() {
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        setPokemon({
-            name: response.data.name,
-            image: response.data.sprites.other.dream_world.front_default,
-            weight: response.data.weight,
-            height: response.data.height,
-            types: response.data.types.map((t) => t.type.name) // types array hai to iterate krege and array me type object hai
-        })
-    }
-
-    useEffect( () => {
-        downloadPokemon();
-    }, []);
+    const {id} = useParams();
+    const [pokemon] = usePokemonDetails(id, pokemonName);
 
 
     
@@ -35,6 +19,15 @@ function PokemonDetails() {
                 <div className='pokemon-details-types'>
                     {pokemon.types && pokemon.types.map((t) => <div key={t}> {t} </div>)}
                 </div>
+
+                {pokemon.types && pokemon.similarPokemons &&
+                    <div>
+                        More {pokemon.types[0]} type pokemons
+                        <ul>
+                            {pokemon.similarPokemons.map((p) => <li key={p.pokemon.url}>{p.pokemon.name}</li>)}
+                        </ul>
+                    </div>
+                }
             </div>
         </>
     )
