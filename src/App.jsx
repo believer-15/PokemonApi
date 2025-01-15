@@ -1,11 +1,16 @@
 import './App.css'
-import Pokemon from './components/Pokemon/Pokemon';
-
+import CustomRoutes from './routes/CustomRoutes'
+import { Link } from 'react-router-dom';
 function App() {
 
   return (
     <>
-      <Pokemon/>
+      <div className="Outer-Pokemon">
+        <h1 id="pokemon-heading">
+          <Link to="/">Pokemon</Link>
+        </h1>
+        <CustomRoutes/>
+      </div>
     </>
   )
 }

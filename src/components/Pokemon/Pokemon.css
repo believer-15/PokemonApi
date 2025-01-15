@@ -2,8 +2,3 @@
   display: flex;
   flex-direction: column;
 }
-
-#pokemon-heading {
-  margin: 0 auto;
-  letter-spacing: 5px;
-}

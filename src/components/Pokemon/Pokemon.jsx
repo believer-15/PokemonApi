@@ -5,7 +5,6 @@ import './Pokemon.css';
 function Pokemon() {
     return (
         <div className="pokemon-wrapper">
-            <h1 id="pokemon-heading">Pokemon</h1>
             <Search></Search>
             <PokemonList></PokemonList>
         </div>
