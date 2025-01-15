@@ -9,9 +9,6 @@ function Pokemon() {
     const [searchTerm, setSearchterm] = useState('');
     return (
         <div className="pokemon-wrapper">
-            <Search></Search>
-            <PokemonList></PokemonList>
-
             <Search updateSearchTerm={setSearchterm} />
             { (!searchTerm) ? <PokemonList /> : <PokemonDetails key={searchTerm} pokemonName={searchTerm} />}
         </div>
